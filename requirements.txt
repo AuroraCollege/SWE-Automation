@@ -12,3 +12,4 @@ numpy
 scikit-learn
 graphviz
 seaborn
+ipykernel jupyter
