@@ -8,7 +8,7 @@
       "configureZshAsDefaultShell": true
     }
   },
-  "waitFor": "onCreateCommand",
+  "waitFor": "postCreateCommand",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -21,5 +21,6 @@
       }
     }
   },
-  "postCreateCommand": "pip3 install --no-cache-dir ipykernel notebook && python3 -m ipykernel install --user && python3 -m pip install -r requirements.txt"
+  "onCreateCommand": "python3 -m pip install --no-cache-dir --upgrade pip setuptools wheel ipykernel jupyter notebook jupyterlab && python3 -m pip install --no-cache-dir -r requirements.txt && python3 -m ipykernel install --user --name python3 --display-name \"Python 3.11 (Codespace)\"",
+  "postCreateCommand": "code --install-extension ms-toolsai.jupyter@2025.9.1 --force && echo 'Container setup complete!'"
 }
